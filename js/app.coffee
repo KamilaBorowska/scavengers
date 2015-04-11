@@ -12,7 +12,6 @@ class Question
   toText: ->
     "#{replaceComma @question or ""}, #{toId @answer or ""}"
 
-
 angular.module 'scavengerApp', []
 .controller 'ScavengerController', ->
   @questions = (new Question for [1..3])
