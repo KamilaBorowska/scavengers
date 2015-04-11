@@ -2,7 +2,6 @@
 ---
 
 replaceComma = (text) ->
-  console.log text
   commaLookalike = "\u201A"
   text.replace /,/g, commaLookalike
 
