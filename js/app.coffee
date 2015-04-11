@@ -9,12 +9,8 @@ toId = (text) ->
   text.toLowerCase().replace /[^a-z0-9]/g, ""
 
 class Question
-  constructor: ->
-    @question = ''
-    @answer = ''
-
   toText: ->
-    "#{replaceComma @question}, #{toId @answer}"
+    "#{replaceComma @question or ""}, #{toId @answer or ""}"
 
 
 angular.module 'scavengerApp', []
@@ -24,7 +20,7 @@ angular.module 'scavengerApp', []
     (question.toText() for question in @questions).join(", ")
 
   @answersToSolution = ->
-    (question.answer for question in @questions).join(", ")
+    (question.answer or "" for question in @questions).join(", ")
 
   @questionsToSolution = ->
-    ("#{i + 1}) #{question.question}" for question, i in @questions).join("\n")
+    ("#{i + 1}) #{question.question or ""}" for question, i in @questions).join("\n")
